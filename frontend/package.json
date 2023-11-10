@@ -1,0 +1,11 @@
+{
+  "name": "ai-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for ai uni project",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dejan Aksovic",
+  "license": "ISC"
+}
