@@ -14,10 +14,12 @@ def format_map(map_name: str):
 
    for linIndex, line in enumerate(lines):
       line = line.replace('\n', '')
-      values[linIndex][linIndex] = 0
       for valueIndex, value in enumerate(line.split(',')):
          if valueIndex > 1 and valueIndex < 5:
-            values[linIndex-2][valueIndex] = int(value)
-            values[valueIndex][linIndex - 2] = int(value)
+            values[linIndex][valueIndex-2] = int(value)
+            print(f"Setting: [{linIndex}][{valueIndex-2}]")
+            values[valueIndex-2][linIndex] = int(value)
+            print(f"Setting: [{valueIndex-2}][{linIndex}]\n\n")
+      values[linIndex][linIndex] = 0
 
    return values
