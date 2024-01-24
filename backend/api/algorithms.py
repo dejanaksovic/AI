@@ -1,4 +1,5 @@
 import numpy as np
+import itertools
 
 def greedySearch(matrix):
   working_matrix = np.array(matrix, dtype = "object")
@@ -17,11 +18,30 @@ def greedySearch(matrix):
           curr_min = working_matrix[curr_index][i]
     coins_allocated.append(curr_min_index)
     curr_min = 1000 #RESETAMO MIN
-  
-  print(f"HERE: {coins_allocated}")
 
   return coins_allocated
       
-  
+def bruteSearch(matrix):
+  print("its on")
+  matrix_to_work = np.array(matrix)
+  init_stack = [1, 2, 3, 4]
+  init_visited = [0]
 
+  paths = []
+  path_weights = []
+
+  def make_array_possibles(curr_path: list, stack: list) -> list:
+    if len(stack) == 1:
+      return stack[0]
     
+    paths_possible = []
+
+    for stack_item in stack:
+      new_stack = list(stack)
+      new_stack.remove(stack_item)
+      single_new_path = make_array_possibles([curr_path, stack_item], new_stack)
+      itertools.chain.from_iterable(single_new_path)
+
+    return paths_possible
+
+  return make_array_possibles([0], init_stack)

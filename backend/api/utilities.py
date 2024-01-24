@@ -22,9 +22,7 @@ def format_map_values(map_name: str):
 
          if valueIndex > 1 and valueIndex < 5:
             matrix_weight[linIndex][valueIndex-2] = int(value)
-            print(f"Setting: [{linIndex}][{valueIndex-2}]")
             matrix_weight[valueIndex-2][linIndex] = int(value)
-            print(f"Setting: [{valueIndex-2}][{linIndex}]\n\n")
 
       matrix_weight[linIndex][linIndex] = 0
 

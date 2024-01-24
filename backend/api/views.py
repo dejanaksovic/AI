@@ -39,6 +39,8 @@ def algorithm(request):
    if not agent.lower() in ["aki", "jocke", "uki", "micko"]:
       return Response({"Error": "invalid agent name"}, status = status.HTTP_400_BAD_REQUEST)
    
+   print(algorithms.bruteSearch(utilities.format_map_values(map)[1]))
+   
    match agent: 
       case "aki":
          return Response(algorithms.greedySearch(utilities.format_map_values(map)[1]))
